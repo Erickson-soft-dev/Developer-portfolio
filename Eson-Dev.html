@@ -1,0 +1,871 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erickson Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for smooth transitions and animations */
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .skill-pill:hover {
+            transform: scale(1.05);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in forwards;
+        }
+        
+        /* Dark mode toggle styles */
+        .dark .dark\:bg-gray-900 {
+            background-color: #111827;
+        }
+        
+        .dark .dark\:text-white {
+            color: #f3f4f6;
+        }
+        
+        .theme-toggle {
+            transition: all 0.3s ease;
+        }
+        
+        /* Wave divider */
+        .wave-divider {
+            height: 50px;
+            overflow: hidden;
+        }
+        
+        .wave-divider svg {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans transition-colors duration-300">
+    <div class="min-h-screen">
+        <!-- Navigation -->
+        <nav class="bg-white dark:bg-gray-900 shadow-sm fixed w-full z-10 transition-colors duration-300">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16">
+                    <div class="flex items-center">
+                        <span class="text-xl font-bold text-indigo-600 dark:text-indigo-400">EricksonDevPortfolio</span>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">About</a>
+                        <a href="#skills" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Skills</a>
+                        <a href="#projects" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Projects</a>
+                        <a href="#experience" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Experience</a>
+                        <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Contact</a>
+                        <button id="themeToggle" class="theme-toggle p-2 rounded-md focus:outline-none">
+                            <i class="fas fa-moon text-gray-700 dark:hidden" title="Dark mode"></i>
+                            <i class="fas fa-sun hidden dark:block text-yellow-300" title="Light mode"></i>
+                        </button>
+                    </div>
+                    <div class="md:hidden flex items-center">
+                        <button id="mobileMenuButton" class="text-gray-700 dark:text-gray-300">
+                            <i class="fas fa-bars text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile menu -->
+            <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-gray-900 transition-all duration-300">
+                <div class="px-4 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">About</a>
+                    <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">Skills</a>
+                    <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">Projects</a>
+                    <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">Experience</a>
+                    <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">Contact</a>
+                    <button id="mobileThemeToggle" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">
+                        Toggle Theme
+                    </button>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Hero Section -->
+        <section id="hero" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-black mb-4">Hi, I'm <span class="text-indigo-600 dark:text-Navy Blue-400">Erickson D.Ayenza</span></h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold text-gray-700 dark:text-black-300 mb-6">Full Stack Developer</h2>
+                    <p class="text-gray-600 dark:text-gray-400 mb-8 max-w-lg">
+                        I build scalable web applications with modern technologies. Passionate about creating efficient, intuitive, and visually appealing digital experiences.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#projects" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-md font-medium transition-colors">
+                            View My Work
+                        </a>
+                        <a href="#contact" class="border border-indigo-600 text-indigo-600 dark:text-indigo-400 dark:border-indigo-400 hover:bg-indigo-50 dark:hover:bg-gray-800 px-6 py-3 rounded-md font-medium transition-colors">
+                            Contact Me
+                        </a>
+                    </div>
+                </div>
+                <div class="relative flex justify-center">
+                    <div class="relative">
+                        <img src="Esonn.jpg.jpg" alt="Professional portrait of Erickson Developer
+                        with modern office background" class="rounded-full w-64 h-64 md:w-80 md:h-80 object-cover border-4 border-indigo-100 dark:border-indigo-900 shadow-lg">
+                        <div class="absolute -bottom-4 -right-4 bg-indigo-600 text-white px-4 py-2 rounded-lg shadow-md">
+                            <span class="font-medium">Open to work</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Wave divider -->
+        <div class="wave-divider">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="fill-current text-gray-200 dark:text-gray-800"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8c40.92-19,84.73-46,130.83-49.67c36.26-2.85,70.9,9.42,98.6,31.56c31.77,25.39,62.32,62,103.63,73c40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84c30.2,8.66,59,6.17,87.09-7.5c22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="fill-current text-gray-200 dark:text-gray-800"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46c59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="fill-current text-indigo-100 dark:text-indigo-900"></path>
+            </svg>
+        </div>
+        
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-indigo-50 dark:bg-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">About Me</h2>
+                    <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-8 md:p-12 max-w-4xl mx-auto">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4">Who I Am</h3>
+                            <p class="text-gray-600 dark:text-gray-400 mb-6">
+                                I'm a passionate Full Stack Developer with 5+ years of experience building web applications across various industries. 
+                                I specialize in JavaScript ecosystems including  Php,React, Node.js, with extensive experience in cloud platforms like Amazon Web Services.
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-400 mb-6">
+                                My approach combines technical expertise with user-centered design principles to create solutions that are both powerful and intuitive.
+                            </p>
+                            <div class="flex space-x-4">
+                                <div class="flex items-center">
+                                    <i class="fas fa-map-marker-alt text-indigo-600 dark:text-indigo-400 mr-2"></i>
+                                    <span class="text-gray-600 dark:text-gray-400">
+                                        Deca Clark Residences,Angeles City,Philippines </span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-envelope text-indigo-600 dark:text-indigo-400 mr-2"></i>
+                                    <span class="text-gray-600 dark:text-gray-400">ericksonayenza@gmail.com</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4">My Approach</h3>
+                            <div class="space-y-4">
+                                <div class="flex">
+                                    <div class="flex-shrink-0 text-indigo-600 dark:text-indigo-400 mt-1">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-gray-600 dark:text-gray-400">
+                                            Focus on clean, maintainable code with robust testing practices
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex">
+                                    <div class="flex-shrink-0 text-indigo-600 dark:text-indigo-400 mt-1">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-gray-600 dark:text-gray-400">
+                                            Agile development methodologies with continuous integration/deployment
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex">
+                                    <div class="flex-shrink-0 text-indigo-600 dark:text-indigo-400 mt-1">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-gray-600 dark:text-gray-400">
+                                            Cloud-native architecture and microservices design patterns
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex">
+                                    <div class="flex-shrink-0 text-indigo-600 dark:text-indigo-400 mt-1">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-gray-600 dark:text-gray-400">
+                                            Performance optimization and scalable system design
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Skills Section -->
+        <section id="skills" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-Blue mb-2">Technical Skills</h2>
+                    <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+                    <p class="text-gray-600 dark:text-gray-400 mt-4 max-w-2xl mx-auto">
+                        I've worked with a wide range of technologies across the full stack spectrum
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Frontend Skills -->
+                    <div class="bg-white dark:bg-gray-900 rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-indigo-100 dark:bg-indigo-900 p-3 rounded-full mr-4">
+                                <i class="fas fa-laptop-code text-indigo-600 dark:text-indigo-400 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Frontend</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-pill bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-4 py-2 rounded-full flex items-center transition-transform">
+                                <i class="fab fa-react text-blue-500 mr-2"></i>React
+                            </span>
+                            <span class="skill-pill bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-4 py-2 rounded-full flex items-center transition-transform">
+                                <i class="fab fa-js-square text-yellow-400 mr-2"></i>JavaScript
+                            </span>
+                            <span class="skill-pill bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-4 py-2 rounded-full flex items-center transition-transform">
+                                <i class="fab fa-css3-alt text-blue-600 mr-2"></i>CSS3
+                            </span>
+                            <span class="skill-pill bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-4 py-2 rounded-full flex items-center transition-transform">
+                                <i class="fab fa-tailwind text-blue-400 mr-2"></i>Tailwind CSS
+                            </span>
+                           
+                            <span class="skill-pill bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-4 py-2 rounded-full flex items-center transition-transform">
+                                <i></i>PHP
+                            </span>
+                            <span class="skill-pill bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-4 py-2 rounded-full flex items-center transition-transform">
+                                <i class="fab fa-tailwind text-blue-400 mr-2"></i>NextJS
+                            </span>
+                             <span class="skill-pill bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-4 py-2 rounded-full flex items-center transition-transform">
+                                <i class="fab fa-tailwind text-blue-400 mr-2"></i>Bootstrap
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <!-- Backend Skills -->
+                    <div class="bg-white dark:bg-gray-900 rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-indigo-100 dark:bg-indigo-900 p-3 rounded-full mr-4">
+                                <i class="fas fa-server text-indigo-600 dark:text-indigo-400 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Backend</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-pill bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-4 py-2 rounded-full flex items-center transition-transform">
+                                <i class="fab fa-node-js text-green-500 mr-2"></i>Node.js
+                            </span>
+                            <span class="skill-pill bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-4 py-2 rounded-full flex items-center transition-transform">
+                                <i class="fas fa-database text-blue-600 mr-2"></i>MongoDB
+                            </span>
+                            <span class="skill-pill bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-4 py-2 rounded-full flex items-center transition-transform">
+                                <i class="fas fa-database text-blue-500 mr-2"></i>PostgreSQL
+                            </span>
+                            <span class="skill-pill bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-4 py-2 rounded-full flex items-center transition-transform">
+                                <i class="fas fa-fire text-orange-500 mr-2"></i>Firebase
+                            </span>
+                            <span class="skill-pill bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-4 py-2 rounded-full flex items-center transition-transform">
+                                <i class="fab fa-python text-blue-700 mr-2"></i>Python
+                            </span>
+                        
+                            <span class="skill-pill bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-4 py-2 rounded-full flex items-center transition-transform">
+                                <i class="fas fa-leaf text-green-600 mr-2"></i>ASP.NET Core </span>
+                            <span class="skill-pill bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-4 py-2 rounded-full flex items-center transition-transform">
+                                <i class="fas fa-leaf text-green-600 mr-2"></i>Entity Framework Core </span>
+                            <span class="skill-pill bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-4 py-2 rounded-full flex items-center transition-transform">
+                                <i class="fas fa-leaf text-green-600 mr-2"></i>SQL Server</span>
+                            <span class="skill-pill bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-4 py-2 rounded-full flex items-center transition-transform">
+                                <i></i>.NET 8</span>
+                        </div>
+                    </div>
+                    
+                    <!-- DevOps & Tools -->
+                    <div class="bg-white dark:bg-gray-900 rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-indigo-100 dark:bg-indigo-900 p-3 rounded-full mr-4">
+                                <i class="fas fa-cloud text-indigo-600 dark:text-indigo-400 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">DevOps & Tools</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-pill bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-4 py-2 rounded-full flex items-center transition-transform">
+                                <i class="fab fa-aws text-orange-500 mr-2"></i>AWS
+                            </span>
+                            <span class="skill-pill bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-4 py-2 rounded-full flex items-center transition-transform">
+                                <i class="fab fa-docker text-blue-500 mr-2"></i>Docker
+                            </span>
+                            <span class="skill-pill bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-4 py-2 rounded-full flex items-center transition-transform">
+                                <i class="fab fa-git-alt text-orange-600 mr-2"></i>Git
+                            </span>
+                            <span class="skill-pill bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-4 py-2 rounded-full flex items-center transition-transform">
+                                <i class="fas fa-chart-line text-green-500 mr-2"></i>CI/CD
+                            </span>
+                            <span class="skill-pill bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-4 py-2 rounded-full flex items-center transition-transform">
+                                <i class="fab fa-linux text-gray-800 dark:text-gray-300 mr-2"></i>Linux
+                            </span>
+                            <span class="skill-pill bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-4 py-2 rounded-full flex items-center transition-transform">
+                                <i class="fas fa-network-wired text-blue-600 mr-2"></i>GitHub Actions
+                            </span>
+                            <span class="skill-pill bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-4 py-2 rounded-full flex items-center transition-transform">
+                                <i class="fas fa-network-wired text-blue-600 mr-2"></i>Azure
+                            </span>
+                               <span class="skill-pill bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-4 py-2 rounded-full flex items-center transition-transform">
+                                <i class="fas fa-network-wired text-blue-600 mr-2"></i>Azure DevOps
+                            </span>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Wave divider flipped -->
+        <div class="wave-divider transform rotate-180">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="fill-current text-gray-200 dark:text-gray-800"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8c40.92-19,84.73-46,130.83-49.67c36.26-2.85,70.9,9.42,98.6,31.56c31.77,25.39,62.32,62,103.63,73c40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84c30.2,8.66,59,6.17,87.09-7.5c22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="fill-current text-gray-200 dark:text-gray-800"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46c59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="fill-current text-indigo-100 dark:text-indigo-900"></path>
+            </svg>
+        </div>
+        
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 bg-indigo-50 dark:bg-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">Featured Projects</h2>
+                    <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+                    <p class="text-gray-600 dark:text-gray-400 mt-4 max-w-2xl mx-auto">
+                        A selection of projects I've built or contributed to significantly
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div class="bg-white dark:bg-gray-900 rounded-xl shadow-md overflow-hidden card-hover transition-all duration-300">
+                        <div class="relative h-48">
+                            <img src="" alt="E-commerce dashboard showing analytics and product management" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <span class="inline-block bg-indigo-600 text-white px-2 py-1 text-xs rounded-full">Full Stack</span>
+                                <h3 class="text-xl font-semibold text-white mt-2"> Enterprise E-Commerce Platform & Infrastructure AWS Lifecycle Deployment</h3>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                                Built and engineered the technical backend framework and cloud infrastructure for 
+                             a high-traffic e-commerce storefront.
+
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-3 py-1 rounded-full text-xs">PHP</span>
+                                <span class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-3 py-1 rounded-full text-xs">Laravel</span>
+                                <span class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-3 py-1 rounded-full text-xs">TypeScript</span>
+                                <span class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-3 py-1 rounded-full text-xs">REST APIs</span>
+                                <span class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-3 py-1 rounded-full text-xs">GIT</span>
+                            </div>
+                           <!-- <div class="flex justify-between">
+                                <a href="#" class="text-indigo-600 dark:text-indigo-400 hover:underline text-sm font-medium">View Details</a>
+                                <a href="#" class="text-indigo-600 dark:text-indigo-400 hover:underline text-sm font-medium">Live Demo</a>
+                            </div>-->
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="bg-white dark:bg-gray-900 rounded-xl shadow-md overflow-hidden card-hover transition-all duration-300">
+                        <div class="relative h-48">
+                            <img src="https://placehold.co/600x400" alt="Collaboration platform interface with multiple users chatting" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <span class="inline-block bg-indigo-600 text-white px-2 py-1 text-xs rounded-full">Systems Architecture Project</span>
+                                <h3 class="text-xl font-semibold text-white mt-2">Enterprise Modern Endpoint Automation Sandbox Infrastructure Lab</h3>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                                Built an automated lab environment mimicking enterprise infrastructure to test 
+                            zero-touch provisioning and programmatic endpoint deployment strategies.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-3 py-1 rounded-full text-xs">PowerShell,</span>
+                                <span class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-3 py-1 rounded-full text-xs">Microsoft Entra ID</span>
+                                <span class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-3 py-1 rounded-full text-xs">Intune</span>
+                                <span class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-3 py-1 rounded-full text-xs">Hyper-V/VirtualBox</span>
+                            </div>
+                           <!--- <div class="flex justify-between">
+                                <a href="#" class="text-indigo-600 dark:text-indigo-400 hover:underline text-sm font-medium">View Details</a>
+                                <a href="#" class="text-indigo-600 dark:text-indigo-400 hover:underline text-sm font-medium">Live Demo</a>
+                            </div>-->
+                        </div>
+
+                    </div>
+                    
+                    <!-- Project 3 -->
+                    <!--<div class="bg-white dark:bg-gray-900 rounded-xl shadow-md overflow-hidden card-hover transition-all duration-300">
+                        <div class="relative h-48">
+                            <img src="https://placehold.co/600x400" alt="Finance dashboard with charts displaying stock market trends" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <span class="inline-block bg-indigo-600 text-white px-2 py-1 text-xs rounded-full">Data Visualization</span>
+                                <h3 class="text-xl font-semibold text-white mt-2">Investment Analytics Dashboard</h3>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                                A financial analytics dashboard with real-time stock market data visualization, portfolio tracking, and predictive analysis features.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-3 py-1 rounded-full text-xs">Next.js</span>
+                                <span class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-3 py-1 rounded-full text-xs">Python</span>
+                                <span class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-3 py-1 rounded-full text-xs">D3.js</span>
+                                <span class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-3 py-1 rounded-full text-xs">Firebase</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <a href="#" class="text-indigo-600 dark:text-indigo-400 hover:underline text-sm font-medium">View Details</a>
+                                <a href="#" class="text-indigo-600 dark:text-indigo-400 hover:underline text-sm font-medium">Live Demo</a>
+                            </div>
+                        </div>
+                    </div>-->
+                    
+         
+    
+        </section>
+        
+        <!-- Experience Section -->
+        <section id="experience" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-black mb-2">Professional Experience</h2>
+                    <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+                    <p class="text-gray-600 dark:text-gray-400 mt-4 max-w-2xl mx-auto">
+                        My journey through the tech industry
+                    </p>
+                </div>
+
+                                <div class="max-w-3xl mx-auto">
+                    <div class="space-y-8">
+                        <!-- Experience 1 -->
+                        <div class="bg-white dark:bg-gray-900 rounded-xl shadow-md p-6 relative">
+                            <div class="absolute -left-10 top-0 h-full flex flex-col items-center">
+                                <div class="bg-indigo-600 rounded-full h-5 w-5 mt-4"></div>
+                                <div class="bg-gray-200 dark:bg-gray-700 h-full w-0.5"></div>
+                            </div>
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Lead L2/L3 Support Consultant (Contract) — Fintech & E-Commerce Sector | 2023 – 2025</h3>
+                                    <p class="text-indigo-600 dark:text-indigo-400">Upwork</p>
+                                </div>
+                                <div class="mt-2 md:mt-0">
+                                    <span class="inline-block bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 px-3 py-1 rounded-full text-sm"> 2023 - 2025</span>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <p class="text-gray-600 dark:text-gray-400">
+                                    Client / Team Environment: Contracted via a global Managed Service Provider (MSP) to support a 
+                                high-volume digital payment and e-commerce infrastructure. Integrated into a cross-functional squad of 
+                                s8 engineers, collaborating directly with DBA teams and core developers.
+                                <ul class="mt-3 space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span class="text-gray-600 dark:text-gray-400">Production SQL & Database Operations: Actively performed production-level database management 
+                                    across MySQL, PostgreSQL, and SQL Server. Spearheaded daily data pulling, schema queries, and 
+                                    indexing to isolate payment bottlenecks. Directly managed code-level database adjustments including 
+                                    data patches and structural updates in coordination with DBAs.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span class="text-gray-600 dark:text-gray-400">Application Troubleshooting & Debugging: Conducted deep-dive, code-level debugging for Node.js 
+                                    REST APIs and cloud infrastructure (GCP, Docker). Resolved complex client troubleshooting,escalations by tracking down runtime exceptions, structural latency, and missing payload issues.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span class="text-gray-600 dark:text-gray-400">ITSM & SLA Governance: Managed the end-to-end lifecycle of critical high-severity incidents, problem 
+                                    tickets, and changes using JIRA. Authored internal troubleshooting runbooks that drove a 25% 
+                                    reduction in application downtime.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                
+                <div class="max-w-3xl mx-auto">
+                    <div class="space-y-8">
+                        <!-- Experience 1 -->
+                        <div class="bg-white dark:bg-gray-900 rounded-xl shadow-md p-6 relative">
+                            <div class="absolute -left-10 top-0 h-full flex flex-col items-center">
+                                <div class="bg-indigo-600 rounded-full h-5 w-5 mt-4"></div>
+                                <div class="bg-gray-200 dark:bg-gray-700 h-full w-0.5"></div>
+                            </div>
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Technical Support Engineer (Contract) — IT Consulting & Web Services | 2021 – 2023</h3>
+                                    <p class="text-indigo-600 dark:text-indigo-400">Upwork</p>
+                                </div>
+                                <div class="mt-2 md:mt-0">
+                                    <span class="inline-block bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 px-3 py-1 rounded-full text-sm">Jan 2021 - 2023</span>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <p class="text-gray-600 dark:text-gray-400">
+                                    Client / Team Environment: Retained by an IT consulting firm to deliver dedicated L2 application and 
+                                infrastructure support for North American B2B clients during a major cloud-migration surge. Worked 
+                                closely within a 5-person technical support unit.
+                                </p>
+                                <ul class="mt-3 space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span class="text-gray-600 dark:text-gray-400">Database & Client Troubleshooting: Utilized advanced SQL queries to investigate and debug 
+                                    transactional mismatches, missing user records, and reporting discrepancies reported by enterprise 
+                                    users. Provided high-touch technical resolution for advanced client-facing configuration issues.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span class="text-gray-600 dark:text-gray-400">Incident Management workflows: Utilized Jira for ticket indexing, tracking, and escalation routing. 
+                                    Monitored server health, identified network latency issues, and coordinated emergency hotfixes
+                                    alongside engineering teams.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                       <!-- <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span class="text-gray-600 dark:text-gray-400"></span>*\-->
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Experience 2 -->
+                        <div class="bg-white dark:bg-gray-900 rounded-xl shadow-md p-6 relative">
+                            <div class="absolute -left-10 top-0 h-full flex flex-col items-center">
+                                <div class="bg-indigo-600 rounded-full h-5 w-5 mt-4"></div>
+                                <div class="bg-gray-200 dark:bg-gray-700 h-full w-0.5"></div>
+                            </div>
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">IT Tech Support Engineer | 2018-2020 </h3>
+                                    <p class="text-indigo-600 dark:text-indigo-400">Clicktek Consulting Inc.</p>
+                                </div>
+                                <div class="mt-2 md:mt-0">
+                                    <span class="inline-block bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 px-3 py-1 rounded-full text-sm">Mar 2018 - Dec 2020</span>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <p class="text-gray-600 dark:text-gray-400">
+                                    Provided comprehensive Level 2 technical support and troubleshooting for client-facing software, hardware, and network systems across various industries. Focused on quickly resolving complex technical issues, maintaining high user uptime, and ensuring the stability of IT infrastructure and business applications.
+                                </p>
+                                <ul class="mt-3 space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span class="text-gray-600 dark:text-gray-400">Advanced Troubleshooting: Managed and resolved critical and routine technical issues related to hardware (desktops, laptops, peripherals), operating systems (Windows/macOS), and business applications.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span class="text-gray-600 dark:text-gray-400">System Maintenance: Conducted regular system diagnostics, updates, patching, and preventative maintenance to ensure the reliability and security of end-user devices and client-side systems.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span class="text-gray-600 dark:text-gray-400">Process Improvement: Led the documentation and standardization of core troubleshooting procedures, creating a more efficient and scalable support process for the team.</span>
+                                    </li>
+                                         <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span class="text-gray-600 dark:text-gray-400">Infrastructure Support: Assisted with the deployment and management of network resources, user access controls, and Active Directory/identity management tasks.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Experience 3 -->
+                        <div class="bg-white dark:bg-gray-900 rounded-xl shadow-md p-6 relative">
+                            <div class="absolute -left-10 top-0 h-full flex flex-col items-center">
+                                <div class="bg-indigo-600 rounded-full h-5 w-5 mt-4"></div>
+                                <div class="bg-gray-200 dark:bg-gray-700 h-full w-0.5"></div>
+                            </div>
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Database & Support Reporting Analyst • MyClick Technologies Inc. | 2016 – 2017</h3>
+                                    <p class="text-indigo-600 dark:text-indigo-400">MyClick Technologies Inc.</p>
+                                </div>
+                                <div class="mt-2 md:mt-0">
+                                    <span class="inline-block bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 px-3 py-1 rounded-full text-sm">Jun 2016 - Feb 2017</span>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <p class="text-gray-600 dark:text-gray-400">
+                                    Database Operations & Engineering: Authored and optimized complex MySQL stored procedures, 
+                                views, and relational database functions to embed core business logic and streamline application 
+                                data flows.
+                                </p>
+                                <ul class="mt-3 space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span class="text-gray-600 dark:text-gray-400">Performance Tuning & Optimization: Executed advanced query tuning, execution path analysis, and 
+                                    database indexing strategies to maximize data retrieval speeds and minimize production server load 
+                                    during high-volume operations.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span class="text-gray-600 dark:text-gray-400">Systems Infrastructure Integration: Designed and maintained end-to-end data pipeline suites using 
+                                    Pentaho, transforming raw production database tables into structured, high-integrity executive data 
+                                    models.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span class="text-gray-600 dark:text-gray-400">Cross-Functional Coordination: Collaborated with engineering leads and business stakeholders to 
+                                    translate complex system issues and operational performance problems into precise technical data 
+                                    specifications.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-gray-100 dark:bg-gray-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">Get In Touch</h2>
+                    <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+                    <p class="text-gray-600 dark:text-gray-400 mt-4 max-w-2xl mx-auto">
+                        Have a project in mind or want to discuss potential opportunities?
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-8">
+                    <!--    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-6">Contact Form</h3>
+                        <form id="contactForm">
+                            <div class="space-y-4">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
+                                    <input type="text" id="name" name="name" class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 focus:border-indigo-500 focus:ring-indigo-500 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+                                    <input type="email" id="email" name="email" class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 focus:border-indigo-500 focus:ring-indigo-500 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300">
+                                </div>
+                                <div>
+                                    <label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Subject</label>
+                                    <input type="text" id="subject" name="subject" class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 focus:border-indigo-500 focus:ring-indigo-500 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300">
+                                </div>
+                                <div>
+                                    <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
+                                    <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 focus:border-indigo-500 focus:ring-indigo-500 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300"></textarea>
+                                </div>
+                                <div>
+                                    <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-md font-medium transition-colors w-full">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>-->
+                    
+                    <div>
+                        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-8 mb-auto">
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-6">Contact Info</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <i class="fas fa-map-marker-alt text-indigo-600 dark:text-indigo-400"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400">Location</h4>
+                                        <p class="text-gray-800 dark:text-gray-300 mt-1">Deca Clark Residences,Angeles City,Philippines</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <i class="fas fa-envelope text-indigo-600 dark:text-indigo-400"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400">Email</h4>
+                                        <p class="text-gray-800 dark:text-gray-300 mt-1">ericksonayenza@gmail.com</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <i class="fas fa-phone-alt text-indigo-600 dark:text-indigo-400"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400">Phone</h4>
+                                        <p class="text-gray-800 dark:text-gray-300 mt-1">0961-8438-718</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <i class="fas fa-clock text-indigo-600 dark:text-indigo-400"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400">Availability</h4>
+                                        <p class="text-gray-800 dark:text-gray-300 mt-1">Mon-Fri: 9AM - 5PM PST</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8">
+                                <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-4">Connect With Me</h4>
+                                <div class="flex space-x-4">
+                                    <a href="#" class="text-gray-700 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                                        <i class="fab fa-linkedin-in text-2xl"></i>
+                                    </a>
+                                    <a href="#" class="text-gray-700 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                                        <i class="fab fa-github text-2xl"></i>
+                                    </a>
+                                    <a href="#" class="text-gray-700 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                                        <i class="fab fa-twitter text-2xl"></i>
+                                    </a>
+                                    <a href="#" class="text-gray-700 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                                        <i class="fab fa-stack-overflow text-2xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+      
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <span class="text-xl font-bold text-indigo-400">DevPortfolio</span>
+                    <p class="text-gray-400 mt-2">© 2026 All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-indigo-400 transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-indigo-400 transition-colors">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-indigo-400 transition-colors">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Dark mode toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const contactForm = document.getElementById('contactForm');
+        
+        // Check for saved theme preference or use system preference
+        const currentTheme = localStorage.getItem('theme') || 
+                           (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        
+        if (currentTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        }
+        
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        });
+        
+        mobileThemeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        });
+        
+        // Mobile menu toggle
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Form submission
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const subject = document.getElementById('subject').value.trim();
+                const message = document.getElementById('message').value.trim();
+
+                if (!name || !email || !subject || !message) {
+                    alert('Please fill in all fields before submitting.');
+                    return;
+                }
+
+                try {
+                    const response = await fetch('/api/contact', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ name, email, subject, message })
+                    });
+
+                    const data = await response.json();
+
+                    if (!response.ok) {
+                        throw new Error(data.error || 'Unable to submit. Please try again later.');
+                    }
+
+                    alert(data.message || 'Thanks! Your message has been submitted.');
+                    contactForm.reset();
+
+                } catch (err) {
+                    console.error('Contact submission error:', err);
+                    alert(`Could not submit your message: ${err.message}`);
+                }
+            });
+        }
+        
+        // Intersection Observer for animations
+        const animateOnScroll = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+        
+        const observer = new IntersectionObserver(animateOnScroll, {
+            threshold: 0.1
+        });
+        
+        document.querySelectorAll('section, .card-hover, .skill-pill').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
